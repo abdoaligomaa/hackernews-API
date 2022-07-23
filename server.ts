@@ -3,6 +3,7 @@ const app=express()
 
 const LoggerMiddleware:RequestHandler=(req,res,next)=>{
     console.log(req.path)
+    console.log(req.body)
     next()
 }
 app.use(LoggerMiddleware)
