@@ -1,5 +1,11 @@
-import express from 'express'
+import express, { NextFunction, Request, RequestHandler } from 'express'
 const app=express()
+
+const LoggerMiddleware:RequestHandler=(req,res,next)=>{
+    console.log(req.path)
+    next()
+}
+app.use(LoggerMiddleware)
 
 app.get('/post',(req,res)=>{
     res.send('one post ')
